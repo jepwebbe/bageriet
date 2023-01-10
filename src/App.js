@@ -7,10 +7,10 @@ import { GlobalStyles } from './Styles/Global';
 function App() {
   return (
     <>
-    <Header />
-    <GlobalStyles />
-    <Router />
-    <Footer />
+      <Header />
+      <GlobalStyles />
+      <Router />
+      <Footer />
     </>
   );
 }

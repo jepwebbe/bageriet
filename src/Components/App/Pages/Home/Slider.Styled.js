@@ -40,6 +40,7 @@ export const StyledHeading = styled.div`
     color: grey;
     transform: scale(2);
     margin-left: 2rem;
+    cursor: pointer;
   }
   .rightArrow {
     grid-area: right;
@@ -47,6 +48,7 @@ export const StyledHeading = styled.div`
     color: grey;
     transform: scale(2);
     margin-right: 2rem;
+    cursor: pointer;
   }
   
 `;

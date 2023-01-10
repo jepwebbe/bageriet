@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 body {
     max-width: 100vw;
@@ -23,6 +24,9 @@ h1 {
     font-family: "Lobster";
     font-size: 3rem;
 }
+h2 {
+    font-size: 2rem;
+    }
 a {
     text-decoration: none;
 }
