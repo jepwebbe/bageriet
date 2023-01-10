@@ -11,10 +11,10 @@ const Products = () => {
 
   const filterCategory = (curcat) => {
     const categoryFilter = allBread.filter((newVal) => {
-      return newVal.category === curcat
+      return newVal.category_id === curcat
     })
     console.log("dette er curcat", curcat)
-
+    setItem(newItem)
   }
   return (
     <ProductsStyled>
@@ -24,10 +24,11 @@ const Products = () => {
         dolorum eius aliquid quisquam dicta labore
       </p>
       <div className="breadWrap">
+
         <ul>
           {categories.map((category) => (
             <li key={category.id}>
-              <button onClick={() => filterCategory(allBread)}>{category.title}</button>
+              <button onClick={() => filterCategory(category)}>{category.title}</button>
             </li>
           ))}
         </ul>

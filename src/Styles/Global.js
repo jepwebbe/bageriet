@@ -28,7 +28,9 @@ body {
     margin: 0 auto;
     font-family: "OpenSans";
 }
-
+main {
+    background-color: #FAFAFA;
+}
 h1 {
     font-family: "Lobster";
     font-size: 3rem;

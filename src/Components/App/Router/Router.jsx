@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Contact from "../../Pages/Contact";
+import ContactThanks from "../../Pages/ContactThanks";
 import Home from "../../Pages/Home/Home";
 import NewBreadDetails from "../../Pages/Home/NewBreadDetails";
 import Login from "../../Pages/Login";
@@ -17,6 +18,8 @@ const Router = () => {
       <Route path="login" element={<Login />} />
       <Route path="produkter" element={<Products />} />
       <Route path="/tak" element={<Thanks />} />
+      <Route path="/takbesked" element={<ContactThanks />} />
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -4,6 +4,8 @@ import headerImg from "../../Assets/images/header.png";
 export const StyledHeader = styled.header`
   background-image: url("${headerImg}");
   height: 5rem;
+  position: sticky;
+  top: 0;
   nav {
     height: 100%;
   } ul {
