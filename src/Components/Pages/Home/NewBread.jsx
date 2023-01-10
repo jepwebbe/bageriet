@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import useGetApiDataFromEnpoint from "../../../Hooks/useGetApiDataFromEnpoint";
-import { BreadStyled } from "../../../Styles/Bread.styled";
+import { BreadStyled, NewBreadStyled } from "../../../Styles/Bread.styled";
 import { FaComments } from "react-icons/fa";
 
 const NewBread = () => {
   const { state: bread } = useGetApiDataFromEnpoint("products", "items");
 
   return (
-    <BreadStyled>
+    <NewBreadStyled>
       <h2>Nyeste bagværk</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore vitae
@@ -16,7 +16,7 @@ const NewBread = () => {
         consectetur adipisicing elit. Dolore vitae deleniti quibusdam
         necessitatibus
       </p>
-      <div>
+      <BreadStyled>
         {bread
           .slice(-8, bread.length)
           .sort(() => Math.random() - 0.5)
@@ -37,9 +37,9 @@ const NewBread = () => {
               </button>
             </article>
           ))}
-      </div>
+      </BreadStyled>
       <Outlet />
-    </BreadStyled>
+    </NewBreadStyled>
   );
 };
 

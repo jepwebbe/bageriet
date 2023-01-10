@@ -5,7 +5,7 @@ import Home from "../../Pages/Home/Home";
 import NewBreadDetails from "../../Pages/Home/NewBreadDetails";
 import Login from "../../Pages/Login";
 import NotFound from "../../Pages/NotFound";
-import Products from "../../Pages/Products";
+import Products from "../../Pages/Products/Products";
 import Thanks from "../../Pages/Thanks";
 
 const Router = () => {
