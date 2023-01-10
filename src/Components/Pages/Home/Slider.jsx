@@ -3,9 +3,10 @@ import { SlideImage, StyledSlider, StyledHeading } from "./Slider.Styled";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 const Slider = ({ slides }) => {
+  // uses state to keep track of the current picture
   const [current, setCurrent] = useState(0);
   const length = slides.length;
-
+// two arrow functions that adds or subtracts one based on a ternary
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };

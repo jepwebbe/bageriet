@@ -1,15 +1,18 @@
-import './App.css';
-import Footer from './Components/App/Partials/Footer';
-import Header from './Components/App/Partials/Header';
-import Router from './Components/App/Router/Router';
-import { GlobalStyles } from './Styles/Global';
+import "./App.css";
+import Footer from "./Components/Partials/Footer";
+import Header from "./Components/Partials/Header";
+import Router from "./Components/App/Router/Router";
+import { GlobalStyles } from "./Styles/Global";
+import { Main } from "./Styles/Main";
 
 function App() {
   return (
     <>
       <Header />
       <GlobalStyles />
-      <Router />
+      <Main>
+        <Router />
+      </Main>
       <Footer />
     </>
   );

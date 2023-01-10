@@ -1,13 +1,15 @@
 import React from "react";
-import { Page } from "../../Layout/Page";
+import { Page } from "../../App/Layout/Page";
 import News from "./News";
 
-import Image1 from "../../../../Assets/images/slide1.jpg";
-import Image2 from "../../../../Assets/images/slide2.jpg";
-import Image3 from "../../../../Assets/images/slide3.jpg";
+import Image1 from "../../../Assets/images/slide1.jpg";
+import Image2 from "../../../Assets/images/slide2.jpg";
+import Image3 from "../../../Assets/images/slide3.jpg";
 import Slider from "./Slider";
 import Newsletter from "./Newsletter";
+import NewBread from "./NewBread";
 
+// Array for the slider component
 const imageData = [{ image: Image1 }, { image: Image2 }, { image: Image3 }];
 
 const Home = () => {
@@ -17,8 +19,11 @@ const Home = () => {
       description="Dette er Bageriets hjemmeside"
     >
       <Slider slides={imageData} />
-      <News />
-      <Newsletter />
+      <div className="wrapView">
+        <News />
+        <Newsletter />
+        <NewBread />
+      </div>
     </Page>
   );
 };

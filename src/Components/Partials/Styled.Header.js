@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import headerImg from "../../../Assets/images/header.png";
+import headerImg from "../../Assets/images/header.png";
 
 export const StyledHeader = styled.header`
   background-image: url("${headerImg}");

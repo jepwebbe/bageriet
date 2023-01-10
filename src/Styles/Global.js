@@ -1,11 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 import Lobster from '../Assets/fonts/Lobster_1.4.otf'
-
+import OpenSans from '../Assets/fonts/OpenSans/OpenSans-Regular.ttf'
 export const GlobalStyles = createGlobalStyle`
 @font-face {
     font-family: "Lobster";
     src: local("Lobster"),
     url(${Lobster}) format('opentype');
+    font-weight: 300;
+    font-style: normal
+}
+@font-face {
+    font-family: "OpenSans";
+    src: local("OpenSans"),
+    url(${OpenSans}) format('truetype');
     font-weight: 300;
     font-style: normal
 }
@@ -19,12 +26,15 @@ html {
 body {
     max-width: 100vw;
     margin: 0 auto;
+    font-family: "OpenSans";
 }
+
 h1 {
     font-family: "Lobster";
     font-size: 3rem;
 }
 h2 {
+    font-family: "Lobster";
     font-size: 2rem;
     }
 a {
