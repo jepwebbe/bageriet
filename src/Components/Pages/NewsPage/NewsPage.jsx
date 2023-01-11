@@ -1,23 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import useGetApiDataFromEnpoint from '../../../Hooks/useGetApiDataFromEnpoint'
-import { NewsStyled } from './News.Styled'
+import { NewsStyled } from '../Home/News.Styled'
 
-const News = () => {
+const NewsPage = () => {
   // uses the custom hook to fetch news and mappes over them
-  const {state: news} = useGetApiDataFromEnpoint("news", "items")
+  const {state: allNews} = useGetApiDataFromEnpoint("news", "items")
   return (
     <NewsStyled>
       <h2>Vi skaber lækkert brød</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat ipsam esse provident, facilis sint inventore quasi. Nam, rem aut. </p>
       <div>
-        {news
-        .slice(-3, news.length)
+        {allNews
         .map(item =>
           <article key={item.id}>
             <img src={item.image} alt="Billede, der illustrerer nyheden" />
-            <Link to={`/nyheder/${item.id}`}>
-              <h3>{item.title.toUpperCase().substring(0, 50)}</h3>
+            <Link to={item.id}>
+                <h3>{item.title.toUpperCase().substring(0, 50)}</h3>
             </Link>
             <p>{item.teaser.substring(0, 150)}</p>
             </article>)}
@@ -26,4 +25,4 @@ const News = () => {
   )
 }
 
-export default News
+export default NewsPage

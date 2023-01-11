@@ -2,23 +2,19 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import appService from '../../App/Appservices/AppService';
+import Comments from '../../Comments/Comments';
 import { StyledProductsDetails } from './ProductsDetails.Styled';
 
 
 export const ProductDetails = () => {
-
     const [breadData, setBreadData] = useState("");
-
     const { id } = useParams();
 
     useEffect(() => {
         const getData = async () => {
             try {
                 const result = await appService.GetDetails("products", id);
-                console.log("breadData er ", result.data.item)
                 setBreadData(result.data.item);
-
-
             } catch (error) {
                 console.error(error)
             }
@@ -45,6 +41,9 @@ export const ProductDetails = () => {
                     </ul>
                 </div>
             </div>
+            
+            <Comments postID={id} />
+            
         </StyledProductsDetails>
     )
 }

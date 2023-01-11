@@ -5,7 +5,8 @@ import { useLoginStore } from '../Login/useLoginStore'
 import { useNavigate } from "react-router-dom"
 import appService from '../App/Appservices/AppService'
 
-const Login = () => {
+const Login = (forward) => {
+    
     // saves useNavigate in a variable to use after login
     const navigate = useNavigate();
     // sets the custom hook with needed information
@@ -23,7 +24,7 @@ const Login = () => {
                 if(response.data){
                     response.data.user.user_id = response.data.user_id
                     setLoggedIn(true, response.data.username, response.data.access_token, response.data.user)
-                    navigate("/produkter")
+                    navigate(forward)
                 }
             } catch (error) {
                 console.error(error)

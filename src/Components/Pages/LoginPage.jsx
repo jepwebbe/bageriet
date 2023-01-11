@@ -13,7 +13,7 @@ const LoginPage = () => {
       <StyledLoginPage>
         <h2>Log ind på Bageriet</h2>
         <h3>Log ind på din brugerkonto her</h3>
-        <Login />
+        <Login forward="/produkter" />
         <p>Ønsker du at ændre noget? Slet eller ret din brugerkonto her</p>
         <h3>Opret bruger</h3> 
         <p>Har du ikke en bruger? Opret en ny brugerkonto</p>

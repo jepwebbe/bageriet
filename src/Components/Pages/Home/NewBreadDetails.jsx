@@ -10,7 +10,7 @@ const NewBreadDetails = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const result = await appService.Get("products", id);
+                const result = await appService.GetDetails("products", id);
 
                 console.log(result); 
                 setNewBread(result);

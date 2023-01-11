@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react'
 import appService from '../Components/App/Appservices/AppService';
 
 const useGetByIdApiDataFromEnpoint = (endpoint, id, key) => {
-  console.log("endpoint", endpoint)
     const [state, setState] = useState([]);
     useEffect(() => {
         const renderData = async () => {    
           try {
-            const response = await appService.Get(endpoint, id);
+            const response = await appService.GetDetails(endpoint, id);
             if (response.data) {
-              !key && console.log(response.data)
+              !key && console.log("hook response data", response.data)
               key && setState(response.data[key]);
             }
           } catch (error) {

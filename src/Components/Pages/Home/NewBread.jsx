@@ -33,7 +33,7 @@ const NewBread = () => {
               <h3>{item.title.toUpperCase()}</h3>
               <p>{item.teaser.substring(0, 100)}</p>
               <button>
-                <Link to={item.id}>SE MERE</Link>
+                <Link to={`/produkter/${item.id}`}>SE MERE</Link>
               </button>
             </article>
           ))}
