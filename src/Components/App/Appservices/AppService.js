@@ -18,13 +18,13 @@ const Get = (e, id) => {
 }
 
 const Create = (e, data) => {
-    return axios.post(`${API_URL}/${BASEURL}/${e}`, data, {
+    return axios.post(`${API_URL}/${e}`, data, {
         headers: authHeader(),
     })
 }
 
 const Login = async (username, password) => {
-    return await axios.post(`${API_URL}/${BASEURL}/token`, { username, password})
+    return await axios.post(`${API_URL}/token`, { username, password})
 }
 
 const Update = (e, id, data) => {

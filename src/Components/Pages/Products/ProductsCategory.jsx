@@ -1,5 +1,5 @@
 import React from "react";
-
+// Item not finished, work in progress
 const ProductsCategory = ({ filterItem, setItem, categories }) => {
 
   return (

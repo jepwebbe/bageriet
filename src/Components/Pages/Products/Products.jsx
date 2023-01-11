@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import useGetApiDataFromEnpoint from "../../../Hooks/useGetApiDataFromEnpoint";
 import { BreadStyled } from "../../../Styles/Bread.styled";
 import { FaComments } from "react-icons/fa";
@@ -9,13 +9,13 @@ const Products = () => {
   const { state: allBread } = useGetApiDataFromEnpoint("products", "items");
   const { state: categories } = useGetApiDataFromEnpoint("categories", "items");
 
-  const filterCategory = (curcat) => {
+/*   const filterCategory = (curcat) => {
     const categoryFilter = allBread.filter((newVal) => {
       return newVal.category_id === curcat
     })
     console.log("dette er curcat", curcat)
     setItem(newItem)
-  }
+  } */
   return (
     <ProductsStyled>
       <h2>Vores elskede bagværk</h2>
@@ -28,7 +28,7 @@ const Products = () => {
         <ul>
           {categories.map((category) => (
             <li key={category.id}>
-              <button onClick={() => filterCategory(category)}>{category.title}</button>
+              <button /* onClick={() => filterCategory(category)} */>{category.title}</button>
             </li>
           ))}
         </ul>
@@ -51,6 +51,7 @@ const Products = () => {
             </article>
           ))}
         </BreadStyled>
+        <Outlet />
       </div>
     </ProductsStyled>
   );
