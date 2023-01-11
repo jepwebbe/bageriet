@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Wrap } from "../../Styles/Wrap";
 
 const ContactThanks = () => {
   return (
-    <section>
+    <Wrap>
+      <section>
         <h2>Tak for din besked</h2>
         <p>Vi har nu modtaget de data, du har sendt os</p>
-    </section>
-  )
-}
+      </section>
+    </Wrap>
+  );
+};
 
-export default ContactThanks
+export default ContactThanks;
