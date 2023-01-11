@@ -2,21 +2,21 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import appService from '../../App/Appservices/AppService';
+import { StyledProductsDetails } from './ProductsDetails.Styled';
 
 
 export const ProductDetails = () => {
 
-    const [apiData, setApiData] = useState("");
+    const [breadData, setBreadData] = useState("");
 
     const { id } = useParams();
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const result = await appService.Get("products", id);
-
-                console.log(result.data.item);
-                setApiData(result.data.item);
+                const result = await appService.GetDetails("products", id);
+                console.log("breadData er ", result.data.item)
+                setBreadData(result.data.item);
 
 
             } catch (error) {
@@ -27,6 +27,24 @@ export const ProductDetails = () => {
     }, [id])
 
     return (
-        <div>{apiData.title}</div>
+        <StyledProductsDetails>
+            <h2>{breadData && breadData.title.toUpperCase()}</h2>
+            <p>{breadData.category}</p>
+            <button>LIKE</button>
+            <div>
+                <div>
+                    <img src={breadData && breadData.image.fullpath} alt={`Et billede af ${breadData.title}`} />
+                    <p>{breadData.teaser + breadData.description}</p>
+                </div>
+                <div className="ingredients">
+                    <h3>Ingredienser</h3>
+                    <ul>
+                        {breadData && breadData.ingredients.map((item, key) => (
+                            <li key={key}>{item.amount + item.unit_abbr + " " + item.ingredient_title}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </StyledProductsDetails>
     )
 }

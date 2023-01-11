@@ -16,6 +16,11 @@ const Get = (e, id) => {
         headers: authHeader(),
     })
 }
+const GetDetails = (e, id) => {
+    return axios.get(`${API_URL}/${BASEURL}/${e}/${id}`, {
+        headers: authHeader(),
+    })
+}
 
 const Create = (e, data) => {
     return axios.post(`${API_URL}/${e}`, data, {
@@ -40,6 +45,6 @@ const Remove = (e, id) => {
 }
 
 const appService = {
-    GetList, Get, Create, Remove, Login, Update,
+    GetList, Get, GetDetails, Create, Remove, Login, Update,
 }
 export default appService;
