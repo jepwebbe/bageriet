@@ -23,8 +23,11 @@ export const NewsStyled = styled.section`
         border-radius: 50%;
         max-width: 100px;
       }
-      h3 {
-        text-align: center;
+      a {
+        color: black;
+        h3 {
+          text-align: center;
+        }
       }
       p {
         color: #a1a1a1;

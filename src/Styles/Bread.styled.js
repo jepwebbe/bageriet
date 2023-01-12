@@ -48,11 +48,12 @@ export const BreadStyled = styled.div`
             height: 2rem;
             border: 1px solid #a1a1a1;
             background-color: white;
-            width: 70%;
+            width: 8rem;
             justify-self: center;
             a {
                 color: #a1a1a1;
                 font-family: "OpenSans";
+                display: block;
             }
         }
     }
