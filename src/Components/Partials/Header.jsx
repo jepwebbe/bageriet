@@ -11,7 +11,7 @@ const Header = () => {
                 <li><NavLink to="/produkter">PRODUKTER</NavLink></li>
                 <li><NavLink to="/"><h1>bageriet</h1></NavLink></li>
                 <li><NavLink to="/kontakt">KONTAKT</NavLink></li>
-                <li><NavLink to="/login">LOGIN</NavLink></li>
+                <li><NavLink to="/login">LOG IND</NavLink></li>
             </ul>
         </nav>
     </StyledHeader>

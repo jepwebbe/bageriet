@@ -15,7 +15,7 @@ const imageData = [{ image: Image1 }, { image: Image2 }, { image: Image3 }];
 const Home = () => {
   return (
     <Page
-      title="Bageriet, velkommen til"
+      title="Bageriet: Velkommen til"
       description="Dette er Bageriets hjemmeside"
     >
       <Slider slides={imageData} />

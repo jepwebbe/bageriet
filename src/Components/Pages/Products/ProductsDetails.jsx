@@ -24,7 +24,7 @@ export const ProductDetails = () => {
 
   return (
     <Page
-      title={breadData.title}
+      title={`Bageriet: ${breadData.title}`}
       description={`En side med opskrifter på ${breadData.title}`}
     >
       <StyledProductsDetails>

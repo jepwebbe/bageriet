@@ -27,7 +27,7 @@ const Products = () => {
 
   return (
     <Page
-      title="Vores elskede bagværk"
+      title="Bageriet: Vores elskede bagværk"
       description="Her kan du se alle vores dejlige produkter"
     >
       <ProductsStyled>

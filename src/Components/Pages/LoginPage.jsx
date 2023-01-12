@@ -7,7 +7,7 @@ import { StyledLoginPage } from "./LoginPage.Styled.js";
 const LoginPage = () => {
   return (
     <Page
-      title="Login på Bageriet"
+      title="Bageriet: Log ind"
       description="Her kan du logge ind og kommentere på vores produkter"
     >
       <StyledLoginPage>
