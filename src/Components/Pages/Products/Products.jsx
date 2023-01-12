@@ -11,6 +11,7 @@ const Products = () => {
   const { state: categories } = useGetApiDataFromEnpoint("categories", "items");
 
   // Hook that rerenders when a click event is heard and rerenders the currentURL (co-authored by ChatGPT)
+  // If a click has lead to a change in the url, the currentUrl state changes which causes a re render of the component
   const [currentURL, setCurrentURL] = useState(window.location.href);
   useEffect(() => {
     const handleUrlChange = () => {
@@ -18,6 +19,7 @@ const Products = () => {
     };
     window.addEventListener("click", handleUrlChange);
     return () => {
+      // clean up function
       window.removeEventListener("click", handleUrlChange);
     };
   }, []);
