@@ -32,11 +32,18 @@ div {
 }
 button {
     position: absolute;
-    top: -5px;
+    top: -1rem;
     left: auto;
+    width: 2rem;
+    height: 2rem;
     border: none;
     color: #333333;
     background-color: white;
-    border-radius: 1rem;
+    border-radius: 50%;
+    a {
+        width: 2rem;
+        height: 2rem;
+
+    }
 }
 `
