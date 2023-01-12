@@ -5,7 +5,8 @@ import Comments from "../Comments/Comments";
 import { useForm } from "react-hook-form";
 import { useLoginStore } from "../Login/useLoginStore";
 // a work in progress, currently loops infinitely
-const AddComment = () => {
+const AddComment = ({addPostID}) => {
+  const product_id = addPostID
   const { loggedIn, userInfo } = useLoginStore();
   const [postID, setPostID] = useState();
   console.log(userInfo);
@@ -36,7 +37,7 @@ const AddComment = () => {
       console.error(error);
     }
   };
-  
+
   return (
     <>
       {loggedIn ? (
@@ -45,13 +46,14 @@ const AddComment = () => {
             type="text"
             {...register("product_id")}
             id="product_id"
-            value={1}
+            value={product_id}
           />
           <input
             type="text"
             {...register("user_id")}
             value={userInfo.user_id}
           />
+
           {errors.title?.type === "required" && <p>FORKERT</p>}
           <input
             type="text"
@@ -65,7 +67,6 @@ const AddComment = () => {
             placeholder="Giv din mening til kende"
           ></textarea>
           <input type="submit" value="Send comment" />
-          <Comments postID={postID} />
         </form>
       ) : (
         <p>Log dog ind</p>

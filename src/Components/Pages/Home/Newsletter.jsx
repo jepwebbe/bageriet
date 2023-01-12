@@ -9,8 +9,6 @@ const Newsletter = () => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     b_email: "",
-    u: "be0af08bb90be07dc785858ac",
-    id: "159130355d",
   });
   // Updates the state whenever anything is written in the input field
   const handleChange = (event) => {

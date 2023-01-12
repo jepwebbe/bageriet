@@ -8,7 +8,6 @@ const useGetByIdApiDataFromEnpoint = (endpoint, id, key) => {
           try {
             const response = await appService.GetDetails(endpoint, id);
             if (response.data) {
-              !key && console.log("hook response data", response.data)
               key && setState(response.data[key]);
             }
           } catch (error) {

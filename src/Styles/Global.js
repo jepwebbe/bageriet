@@ -38,6 +38,8 @@ h1 {
 h2 {
     font-family: "Lobster";
     font-size: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
     }
 a {
     text-decoration: none;

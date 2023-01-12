@@ -23,7 +23,7 @@ const GetDetails = (e, id) => {
 }
 
 const Create = (e, data) => {
-    return axios.post(`${API_URL}/${e}`, data, {
+    return axios.post(`${API_URL}/${BASEURL}/${e}`, data, {
         headers: authHeader(),
     })
 }
