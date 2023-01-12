@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import useGetApiDataFromEnpoint from "../../../Hooks/useGetApiDataFromEnpoint";
 import { BreadStyled } from "../../../Styles/Bread.styled";
@@ -10,13 +10,19 @@ const Products = () => {
   const { state: allBread } = useGetApiDataFromEnpoint("products", "items");
   const { state: categories } = useGetApiDataFromEnpoint("categories", "items");
 
-  /*   const filterCategory = (curcat) => {
-    const categoryFilter = allBread.filter((newVal) => {
-      return newVal.category_id === curcat
-    })
-    console.log("dette er curcat", curcat)
-    setItem(newItem)
-  } */
+  // Hook that rerenders when a click event is heard and rerenders the currentURL (co-authored by ChatGPT)
+  const [currentURL, setCurrentURL] = useState(window.location.href);
+  useEffect(() => {
+    const handleUrlChange = () => {
+      setCurrentURL(window.location.href);
+    };
+    window.addEventListener("click", handleUrlChange);
+    return () => {
+      window.removeEventListener("click", handleUrlChange);
+    };
+  }, []);
+  const endUrl = currentURL.substring(currentURL.lastIndexOf("/") + 1);
+
   return (
     <Page
       title="Vores elskede bagværk"
@@ -32,34 +38,37 @@ const Products = () => {
           <ul>
             {categories.map((category) => (
               <li key={category.id}>
-                <button /* onClick={() => filterCategory(category)} */>
-                  {category.title}
+                <button>
+                  <Link to={"/produkter/" + category.id}>{category.title}</Link>
                 </button>
               </li>
             ))}
           </ul>
-          <BreadStyled>
-            {allBread.map((item) => (
-              <article key={item.id}>
-                <img
-                  src={item.image.fullpath}
-                  alt={`Et billede af ${item.title}`}
-                />
-                <div>
-                  <p>{item.num_comments}</p>
-                  <FaComments />
-                </div>
-                <h3>{item.title.toUpperCase()}</h3>
-                <p>{item.teaser.substring(0, 100)}</p>
-                <button>
-                  <Link to={item.id}>SE MERE</Link>
-                </button>
-              </article>
-            ))}
-          </BreadStyled>
+          {endUrl !== "produkter" ? (
+            <Outlet />
+          ) : (
+            <BreadStyled>
+              {allBread.map((item) => (
+                <article key={item.id}>
+                  <img
+                    src={item.image.fullpath}
+                    alt={`Et billede af ${item.title}`}
+                  />
+                  <div>
+                    <p>{item.num_comments}</p>
+                    <FaComments />
+                  </div>
+                  <h3>{item.title.toUpperCase()}</h3>
+                  <p>{item.teaser.substring(0, 100)}</p>
+                  <button>
+                    <Link to={"/produkt/" + item.id}>SE MERE</Link>
+                  </button>
+                </article>
+              ))}
+            </BreadStyled>
+          )}
         </div>
       </ProductsStyled>
-
     </Page>
   );
 };

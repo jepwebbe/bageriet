@@ -9,6 +9,7 @@ import NewsPage from "../../Pages/NewsPage/NewsPage";
 import { NewsPageDetails } from "../../Pages/NewsPage/NewsPageDetails";
 import NotFound from "../../Pages/NotFound";
 import Products from "../../Pages/Products/Products";
+import ProductsCategory from "../../Pages/Products/ProductsCategory";
 import { ProductDetails } from "../../Pages/Products/ProductsDetails";
 import Thanks from "../../Pages/Thanks";
 
@@ -20,8 +21,11 @@ const Router = () => {
       <Route path="login" element={<LoginPage />} />
       <Route path="nyheder" element={<NewsPage/>} />
       <Route path="nyheder/:id" element={<NewsPageDetails />} />
-      <Route path="produkter" element={<Products />} />
-      <Route path="produkter/:id" element={<ProductDetails />} />
+      <Route path="produkter" element={<Products />}>
+      <Route path=":id" element={<ProductsCategory />} />
+
+      </Route>
+      <Route path="produkt/:id" element={<ProductDetails />} />
       <Route path="/tak" element={<Thanks />} />
       <Route path="/takbesked" element={<ContactThanks />} />
       <Route path="/*" element={<NotFound />} />

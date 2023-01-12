@@ -15,6 +15,11 @@ const Comments = ({ postID }) => {
     product_id,
     "items"
   );
+ // Function co-authored by chatGPT 
+  function formatTimestamp(timestamp) {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleString();
+  }
   return (
     <CommentsStyled>
       <h3>{comments && comments? comments.length : "0" } kommentarer</h3>
@@ -27,6 +32,7 @@ const Comments = ({ postID }) => {
 
                 <div>
                   <h4>{item.title}</h4>
+                  <p>Skrevet den {formatTimestamp(item.created)}</p>
                   <p>{item.comment}</p>
                   <p>
                     Skrevet af {item.user.firstname} "{item.user.username}"{" "}

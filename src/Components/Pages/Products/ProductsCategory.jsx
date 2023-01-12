@@ -1,27 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { BreadStyled } from "../../../Styles/Bread.styled";
+import appService from "../../App/Appservices/AppService";
 // Item not finished, work in progress
-const ProductsCategory = ({ filterItem, setItem, categories }) => {
+const ProductsCategory = () => {
+  const [categories, setCategories] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const result = await appService.GetDetails("categories", id);
+        setCategories(result.data.item.products);
+        console.log(result.data.item.products)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getCategories();
+  }, [id]);
 
   return (
-    <>
-      <div className="d-flex justify-content-center">
-        {categories.map((Val, id) => {
-          return (
-            <button
-              onClick={() => filterItem(Val)}
-              key={id}
-            >
-              {Val}
-            </button>
-          );
-        })}
-        <button
-          onClick={() => setItem(categories)}
-        >
-          All
-        </button>
-      </div>
-    </>
+    <BreadStyled>
+      {categories && categories.map((item) => (
+        <article key={item.id}>
+          <img src={item.image.fullpath} alt={`Et billede af ${item.title}`} />
+          <div>
+            <p>{item.num_comments}</p>
+            {/*           <FaComments />
+             */}{" "}
+          </div>
+          <h3>{item.title.toUpperCase()}</h3>
+          <p>{item.teaser.substring(0, 100)}</p>
+          <button>
+            <Link to={"/produkt/" + item.id}>SE MERE</Link>
+          </button>
+        </article>
+      ))}
+    </BreadStyled>
   );
 };
 

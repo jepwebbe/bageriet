@@ -9,7 +9,6 @@ const AddComment = ({addPostID}) => {
   const product_id = addPostID
   const { loggedIn, userInfo } = useLoginStore();
   const [postID, setPostID] = useState();
-  console.log(userInfo);
   const {
     register,
     handleSubmit,
@@ -17,7 +16,6 @@ const AddComment = ({addPostID}) => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    console.log("commentdata", data);
     const postData = {
       user_id: data.user_id,
       product_id: data.product_id,
