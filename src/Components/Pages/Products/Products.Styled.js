@@ -13,6 +13,7 @@ export const ProductsStyled = styled.section`
     cursor: pointer;
     color: #a1a1a1;
   }
+
   p {
     padding: 0 2rem;
   }

@@ -39,7 +39,7 @@ const Update = (e, id, data) => {
 }
 
 const Remove = (e, id) => {
-    return axios.get(`${API_URL}/${BASEURL}/${e}/${id}`, {
+    return axios.delete(`${API_URL}/${BASEURL}/${e}/${id}`, {
         headers: authHeader(),
     })
 }

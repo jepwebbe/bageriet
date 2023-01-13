@@ -6,6 +6,9 @@ margin: 0 auto;
 h2 {
     font-family: "OpenSans";
 }
+pre {
+    white-space: pre-wrap;
+  }
 >div {
     display: grid;
     grid-template-columns: 5fr 2fr;

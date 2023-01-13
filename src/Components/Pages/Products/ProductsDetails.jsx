@@ -37,7 +37,9 @@ export const ProductDetails = () => {
               src={breadData && breadData.image.fullpath}
               alt={`Et billede af ${breadData.title}`}
             />
-            <p>{breadData.teaser + " " + breadData.description}</p>
+            <pre>
+              <p>{breadData.teaser + " " + breadData.description}</p>
+            </pre>
           </div>
           <div className="ingredients">
             <h3>Ingredienser</h3>

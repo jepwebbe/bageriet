@@ -9,7 +9,7 @@ color: white;
 display: flex;
 align-items: center;
 div {
-    width: 800px;
+    max-width: 800px;
     margin: 0 auto;
 div {
     h2 {

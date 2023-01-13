@@ -5,8 +5,9 @@ import { useLoginStore } from "../Login/useLoginStore";
 import AddComment from "./AddComment";
 import propic from "../../Assets/images/commentpictureDALLE.png";
 import { CommentsStyled } from "./Styled.Comments";
+
 const Comments = ({ postID }) => {
-  const { loggedIn } = useLoginStore();
+  const { loggedIn, username } = useLoginStore();
 
   const product_id = postID;
   // const [comments, setComments] = useState([]);
@@ -20,6 +21,7 @@ const Comments = ({ postID }) => {
     const date = new Date(timestamp * 1000);
     return date.toLocaleString();
   }
+
   return (
     <CommentsStyled>
       <h3>{comments && comments ? comments.length : "0"} kommentarer</h3>
@@ -39,6 +41,7 @@ const Comments = ({ postID }) => {
                     Skrevet af {item.user.firstname} "{item.user.username}"{" "}
                     {item.user.lastname}
                   </p>
+                  {username === item.user.username && <button>X</button>}
                 </div>
               </div>
             ))}
