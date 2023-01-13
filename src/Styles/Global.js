@@ -22,11 +22,18 @@ export const GlobalStyles = createGlobalStyle`
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    height: 100%;
 }
 body {
-    max-width: 100vw;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     font-family: "OpenSans";
+}
+#root {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100%;
 }
 main {
     background-color: #FAFAFA;

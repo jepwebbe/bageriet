@@ -50,5 +50,4 @@ export const StyledHeading = styled.div`
     margin-right: 2rem;
     cursor: pointer;
   }
-  
 `;

@@ -16,6 +16,7 @@ export const StyledHeader = styled.header`
     align-content: center;
     width: 35rem;
     margin: 0 auto;
+    padding-left: 0;
     li {
         display: grid;
         align-content: center;

@@ -13,7 +13,7 @@ const Footer = () => {
       <div>
         <p>Copyright ©2017 Bageriet APS</p>
       </div>
-      <button><a href="/#"><FaChevronUp /></a></button>
+      <button><a href="#"><FaChevronUp /></a></button>
     </StyledFooter>
   );
 };

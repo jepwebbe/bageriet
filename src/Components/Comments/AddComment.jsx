@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import appService from "../App/Appservices/AppService";
-import Comments from "../Comments/Comments";
 import { useForm } from "react-hook-form";
 import { useLoginStore } from "../Login/useLoginStore";
+import { AddCommentsStyled } from "./Styled.AddComments";
+import { FaPen } from 'react-icons/fa'
 // a work in progress, currently loops infinitely
 const AddComment = ({addPostID}) => {
   const product_id = addPostID
@@ -39,33 +40,35 @@ const AddComment = ({addPostID}) => {
   return (
     <>
       {loggedIn ? (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <AddCommentsStyled onSubmit={handleSubmit(onSubmit)}>
           <input
-            type="text"
+            type="hidden"
             {...register("product_id")}
             id="product_id"
             value={product_id}
           />
           <input
-            type="text"
+            type="hidden"
             {...register("user_id")}
             value={userInfo.user_id}
           />
-
           {errors.title?.type === "required" && <p>FORKERT</p>}
-          <input
-            type="text"
-            {...register("title", { required: true })}
-            placeholder="Title"
-          />
-          <textarea
-            {...register("comment", { required: true })}
-            id="comment"
-            rows="10"
-            placeholder="Giv din mening til kende"
-          ></textarea>
-          <input type="submit" value="Send comment" />
-        </form>
+          <FaPen />
+          <div>
+            <input
+              type="text"
+              {...register("title", { required: true })}
+              placeholder="Titel"
+            />
+            <textarea
+              {...register("comment", { required: true })}
+              id="comment"
+              rows="1"
+              placeholder="Fortæl os hvad du synes"
+            ></textarea>
+          </div>
+          <input type="submit" value="Indsæt" />
+        </AddCommentsStyled>
       ) : (
         <p>Log dog ind</p>
       )}

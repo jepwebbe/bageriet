@@ -8,8 +8,8 @@ import { Main } from "./Styles/Main";
 function App() {
   return (
     <>
-      <Header />
       <GlobalStyles />
+      <Header />
       <Main>
         <Router />
       </Main>

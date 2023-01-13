@@ -6,13 +6,14 @@ const Slider = ({ slides }) => {
   // uses state to keep track of the current picture, sets it on first picture
   const [current, setCurrent] = useState(0);
   const length = slides.length;
-// two arrow functions that adds or subtracts one based on a ternary
+  // two arrow functions that adds or subtracts one based on a ternary
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
   return (
     <StyledSlider>
       <StyledHeading>
@@ -26,7 +27,6 @@ const Slider = ({ slides }) => {
       {slides.map((slide, index) => {
         return (
           <div key={index}>
-            
             {index === current && (
               <SlideImage
                 key={index}
