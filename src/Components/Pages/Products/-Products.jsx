@@ -5,7 +5,6 @@ import { BreadStyled } from "../../../Styles/Bread.styled";
 import { FaComments } from "react-icons/fa";
 import { ProductsStyled } from "./Products.Styled";
 import { Page } from "../../App/Layout/Page";
-import Search from "./Search";
 
 const Products = () => {
   const { state: allBread } = useGetApiDataFromEnpoint("products", "items");
@@ -25,7 +24,24 @@ const Products = () => {
     };
   }, []);
   const endUrl = currentURL.substring(currentURL.lastIndexOf("/") + 1);
+  // SEARCH COMPONENT
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  // function that handles change whenever something is typed in the search field, can also be used for instant search
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  // function that handles submission of form, clicking search button
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // filter allBread array to find items that match searchTerm
+    const results = allBread.filter((item) =>
+     // Compares the title of every item in allBread with the searchTerm
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+
   return (
     <Page
       title="Bageriet: Vores elskede bagværk"
@@ -50,50 +66,32 @@ const Products = () => {
           {endUrl !== "produkter" ? (
             <Outlet />
           ) : (
-            <>
-              <Search
-                allBread={allBread}
-                searchResults={searchResults}
-                setSearchResults={setSearchResults}
-              />
-              <BreadStyled>
-                {searchResults.length > 0
-                  ? searchResults.map((item) => (
-                      <article key={item.id}>
-                        <img
-                          src={item.image.fullpath}
-                          alt={`Et billede af ${item.title}`}
-                        />
-                        <div>
-                          <p>{item.num_comments}</p>
-                          <FaComments />
-                        </div>
-                        <h3>{item.title.toUpperCase()}</h3>
-                        <p>{item.teaser.substring(0, 100)}...</p>
-                        <button>
-                          <Link to={"/produkt/" + item.id}>SE MERE</Link>
-                        </button>
-                      </article>
-                    ))
-                  : allBread.map((item) => (
-                      <article key={item.id}>
-                        <img
-                          src={item.image.fullpath}
-                          alt={`Et billede af ${item.title}`}
-                        />
-                        <div>
-                          <p>{item.num_comments}</p>
-                          <FaComments />
-                        </div>
-                        <h3>{item.title.toUpperCase()}</h3>
-                        <p>{item.teaser.substring(0, 100)}...</p>
-                        <button>
-                          <Link to={"/produkt/" + item.id}>SE MERE</Link>
-                        </button>
-                      </article>
-                    ))}
-              </BreadStyled>
-            </>
+            <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Søg efter dit yndlingsbrød"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+            <button type="submit">Søg</button> 
+            <BreadStyled>
+              {searchResults.map((item) => (
+                <article key={item.id}>
+                  <img src={item.image.fullpath} alt={`Et billede af ${item.title}`} />
+                  <div>
+                    <p>{item.num_comments}</p>
+                    <FaComments />
+                  </div>
+                  <h3>{item.title.toUpperCase()}</h3>
+                  <p>{item.teaser.substring(0, 100)}</p>
+                  <button>
+                    <Link to={"/produkt/" + item.id}>SE MERE</Link>
+                  </button>
+                </article>
+                
+              ))}
+            </BreadStyled>
+          </form>
           )}
         </div>
       </ProductsStyled>
